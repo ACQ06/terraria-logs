@@ -2,7 +2,7 @@ import requests
 import simplejson as json
 import time
 
-url = "https://discord.com/api/webhooks/1082850421409845399/zCw3hMaHh0itrouprwVZ9bk8Jeyj8qUOuAZe7opfgo-PVLda6DSgLunZTJlF7aZk5YYx"
+url = ""
 headers = {"Content-Type": "application/json", "User-Agent": "MyBot/1.0"}
 
 filename = "logs.txt"
@@ -15,6 +15,10 @@ while True:
         time.sleep(0.1)  # wait for new lines
         continue
     # process new chat line here
+    if line.strip()[0] == 'V' or line.strip()[0] == 'S':
+        continue
+
+    
     data = {"content": line.strip()}
     response = requests.post(url, data=json.dumps(data), headers=headers)
     if response.status_code == 204:

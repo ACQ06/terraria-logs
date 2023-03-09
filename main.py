@@ -17,7 +17,7 @@ while True:
 
     try:
         # process new chat line here
-        if line.strip()[0] != '<' or ('has' is line.strip() == False):
+        if line.strip()[0] != '<' or ('has' in line.strip() == False):
             continue
 
         data = {"content": line.strip()}
